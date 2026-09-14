@@ -10,14 +10,17 @@
   <link rel="stylesheet" href="desktop.css" />
 </head>
 <body>
-  <!-- Full-viewport background -->
-  <div class="bg">
-    <div class="bg-img"></div>
-    <div class="bg-grad"></div>
-  </div>
+  <!-- Ambient blurred fill so wide screens have no black bars -->
+  <div class="ambient"></div>
 
   <div class="viewport desktop-root">
     <div class="frame" data-node-id="1:24">
+
+      <!-- Background (bound to the scene, matches reference composition) -->
+      <div class="bg">
+        <div class="bg-img"></div>
+        <div class="bg-grad"></div>
+      </div>
 
       <!-- Settings + Music buttons -->
       <div class="top-btn" style="left:1276px; top:26px"><img src="assets/ic_music.svg" alt="music" /></div>
@@ -121,6 +124,12 @@
   <!-- ============ MOBILE LAYOUT ============ -->
   <div class="viewport mobile-root">
     <div class="m-frame">
+
+      <!-- Background -->
+      <div class="bg">
+        <div class="bg-img"></div>
+        <div class="bg-grad"></div>
+      </div>
 
       <!-- Top bar: settings/music -->
       <div class="m-top">

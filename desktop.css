@@ -24,11 +24,24 @@ html, body {
   height: 1024px;
   flex: none;
   transform-origin: center center;
-  background: transparent;
+  background: #10131c;
+  overflow: hidden;
 }
 
-/* ---------- Background (full viewport, no letterbox bars) ---------- */
-.bg { position: fixed; inset: 0; z-index: 0; overflow: hidden; }
+/* Ambient blurred fridge behind the scene — fills letterbox on wide screens */
+.ambient {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background: url("assets/bg_desktop.png") no-repeat center center;
+  background-size: cover;
+  filter: blur(34px) brightness(0.5);
+  transform: scale(1.15);
+}
+.viewport { position: relative; z-index: 1; }
+
+/* ---------- Background (bound to the scene, matches reference) ---------- */
+.bg { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
 .bg-img {
   position: absolute;
   inset: 0;
@@ -38,11 +51,10 @@ html, body {
 .bg-grad {
   position: absolute;
   inset: 0;
-  /* light fade only at the very bottom so the control bar stays readable;
-     fridge stays fully visible */
-  background: linear-gradient(to top, rgba(28,21,93,0.75) 0%, rgba(28,21,93,0) 22%);
+  background: linear-gradient(to top, #1c155d 30%, rgba(28,21,93,0) 66%);
 }
-.viewport { position: relative; z-index: 1; }
+/* keep scene elements above the scene background */
+.frame > *:not(.bg) { position: absolute; z-index: 1; }
 
 /* ---------- Top buttons ---------- */
 .top-btn {
@@ -376,7 +388,12 @@ html, body {
   align-items: center;
   padding: 14px 12px 18px;
   gap: 14px;
+  overflow: hidden;
+  background: #10131c;
+  border-radius: 24px;
 }
+.m-frame > .bg { position: absolute; inset: 0; z-index: 0; overflow: hidden; border-radius: 24px; }
+.m-frame > *:not(.bg) { position: relative; z-index: 1; }
 
 .m-top {
   width: 100%;
