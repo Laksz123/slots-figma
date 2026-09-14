@@ -10,17 +10,14 @@
   <link rel="stylesheet" href="desktop.css" />
 </head>
 <body>
-  <!-- Ambient blurred fill so wide screens have no black bars -->
-  <div class="ambient"></div>
+  <!-- Full-viewport fridge background (fills width, no side bars) -->
+  <div class="bg">
+    <div class="bg-img"></div>
+    <div class="bg-grad"></div>
+  </div>
 
   <div class="viewport desktop-root">
     <div class="frame" data-node-id="1:24">
-
-      <!-- Background (bound to the scene, matches reference composition) -->
-      <div class="bg">
-        <div class="bg-img"></div>
-        <div class="bg-grad"></div>
-      </div>
 
       <!-- Settings + Music buttons -->
       <div class="top-btn" style="left:1276px; top:26px"><img src="assets/ic_music.svg" alt="music" /></div>

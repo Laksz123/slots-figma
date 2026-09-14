@@ -24,37 +24,24 @@ html, body {
   height: 1024px;
   flex: none;
   transform-origin: center center;
-  background: #10131c;
-  overflow: hidden;
-}
-
-/* Ambient blurred fridge behind the scene — fills letterbox on wide screens */
-.ambient {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  background: url("assets/bg_desktop.png") no-repeat center center;
-  background-size: cover;
-  filter: blur(34px) brightness(0.5);
-  transform: scale(1.15);
+  background: transparent;
 }
 .viewport { position: relative; z-index: 1; }
 
-/* ---------- Background (bound to the scene, matches reference) ---------- */
-.bg { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
+/* ---------- Full-viewport background: fills width, anchored to top so the
+   fridge light stays visible; no side bars, lower area masked by purple ---------- */
+.bg { position: fixed; inset: 0; z-index: 0; overflow: hidden; background: #241a4d; }
 .bg-img {
   position: absolute;
   inset: 0;
-  background: url("assets/bg_desktop.png") no-repeat center top;
-  background-size: cover;
+  background: url("assets/bg_desktop.png") no-repeat top center;
+  background-size: 100% auto;
 }
 .bg-grad {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, #1c155d 30%, rgba(28,21,93,0) 66%);
+  background: linear-gradient(to top, #1c155d 26%, rgba(28,21,93,0) 60%);
 }
-/* keep scene elements above the scene background */
-.frame > *:not(.bg) { position: absolute; z-index: 1; }
 
 /* ---------- Top buttons ---------- */
 .top-btn {
@@ -392,7 +379,8 @@ html, body {
   background: #10131c;
   border-radius: 24px;
 }
-.m-frame > .bg { position: absolute; inset: 0; z-index: 0; overflow: hidden; border-radius: 24px; }
+.m-frame > .bg { position: absolute; inset: 0; z-index: 0; overflow: hidden; border-radius: 24px; background: #241a4d; }
+.m-frame .bg-img { background-size: cover; background-position: center top; }
 .m-frame > *:not(.bg) { position: relative; z-index: 1; }
 
 .m-top {
@@ -487,7 +475,7 @@ html, body {
 .m-extra-bet { font-weight: 800; font-size: 13px; color: #e3f3ff; text-transform: uppercase; }
 
 /* Info row */
-.m-info, .m-controls { width: 366px; display: flex; gap: 10px; }
+.m-info, .m-controls { width: 366px; display: flex; gap: 8px; }
 .m-box {
   background: #060c19;
   border: 1px solid #4b3d50;
@@ -514,7 +502,7 @@ html, body {
 .m-bet .bet-val { font-weight: 700; font-size: 16px; color: #fff; }
 
 .m-square {
-  width: 70px; height: 60px; flex: none;
+  width: 62px; height: 60px; flex: none;
   background: #060c19;
   border: 1px solid #c9aac9;
   border-radius: 16px;
