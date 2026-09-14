@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Slots</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="stage">
+    <div class="screen" data-node-id="66:290">
+
+      <!-- Background: fridge photo + gradient overlay -->
+      <div class="bg">
+        <div class="bg-img"></div>
+        <div class="bg-grad"></div>
+      </div>
+
+      <!-- Status bar -->
+      <div class="statusbar">
+        <div class="sb-time"><img src="assets/time941.svg" alt="9:41" /></div>
+        <div class="sb-indicator"><img src="assets/indicator.svg" alt="" /></div>
+        <div class="sb-icons">
+          <img class="ic-net" src="assets/network.svg" alt="" />
+          <img class="ic-wifi" src="assets/wifi.svg" alt="" />
+          <img class="ic-bat" src="assets/battery.svg" alt="" />
+        </div>
+      </div>
+
+      <!-- Logo placeholder box -->
+      <div class="logo-box"></div>
+
+      <!-- Slot machine -->
+      <div class="slot-outer">
+        <div class="slot-inner">
+          <!-- grid lines -->
+          <div class="grid-lines">
+            <span class="v-line" style="left:66px"></span>
+            <span class="v-line" style="left:131px"></span>
+            <span class="v-line" style="left:196px"></span>
+            <span class="v-line" style="left:261px"></span>
+            <span class="h-line" style="top:64px"></span>
+            <span class="h-line" style="top:129px"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fruit symbols (absolute within screen) -->
+      <img class="sym" src="assets/cherry.png"     style="left:117.05px; top:286px; width:51.12px; height:61.27px" alt="" />
+      <img class="sym" src="assets/plum.png"       style="left:173px;    top:290px; width:46px;    height:54px"    alt="" />
+      <img class="sym" src="assets/banana.png"     style="left:231px;    top:293px; width:56px;    height:52px"    alt="" />
+      <img class="sym" src="assets/watermelon.png" style="left:303px;    top:290px; width:55px;    height:55px"    alt="" />
+      <img class="sym" src="assets/orange.png"     style="left:38px;     top:355px; width:57px;    height:57px"    alt="" />
+
+      <!-- BONUS BUY button -->
+      <div class="bonus-buy">
+        <img src="assets/buy.svg" alt="" class="bb-icon" />
+        <span class="bb-text">BONUS BUY</span>
+      </div>
+
+      <!-- Place your bet -->
+      <div class="pyb-bar"></div>
+      <p class="pyb-text">Place your bet</p>
+
+      <!-- Bottom bet selector -->
+      <div class="bet-bar">
+        <div class="bet-cells">
+          <span class="bet-cell"></span>
+          <span class="bet-cell"></span>
+          <span class="bet-cell active"></span>
+          <span class="bet-cell"></span>
+          <span class="bet-cell"></span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>

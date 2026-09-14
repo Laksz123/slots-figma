@@ -2,81 +2,128 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>Slots</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Slots — Desktop</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="desktop.css" />
 </head>
 <body>
-  <div class="stage">
-    <div class="screen" data-node-id="66:290">
+  <div class="viewport">
+    <div class="frame" data-node-id="1:24">
 
-      <!-- Background: fridge photo + gradient overlay -->
+      <!-- Background -->
       <div class="bg">
         <div class="bg-img"></div>
         <div class="bg-grad"></div>
       </div>
 
-      <!-- Status bar -->
-      <div class="statusbar">
-        <div class="sb-time"><img src="assets/time941.svg" alt="9:41" /></div>
-        <div class="sb-indicator"><img src="assets/indicator.svg" alt="" /></div>
-        <div class="sb-icons">
-          <img class="ic-net" src="assets/network.svg" alt="" />
-          <img class="ic-wifi" src="assets/wifi.svg" alt="" />
-          <img class="ic-bat" src="assets/battery.svg" alt="" />
-        </div>
-      </div>
-
-      <!-- Logo placeholder box -->
-      <div class="logo-box"></div>
+      <!-- Settings + Music buttons -->
+      <div class="top-btn" style="left:1276px; top:26px"><img src="assets/ic_music.svg" alt="music" /></div>
+      <div class="top-btn" style="left:1350px; top:26px"><img src="assets/ic_settings.svg" alt="settings" /></div>
 
       <!-- Slot machine -->
-      <div class="slot-outer">
-        <div class="slot-inner">
-          <!-- grid lines -->
-          <div class="grid-lines">
-            <span class="v-line" style="left:66px"></span>
-            <span class="v-line" style="left:131px"></span>
-            <span class="v-line" style="left:196px"></span>
-            <span class="v-line" style="left:261px"></span>
-            <span class="h-line" style="top:64px"></span>
-            <span class="h-line" style="top:129px"></span>
-          </div>
+      <div class="slot-outer"></div>
+      <div class="slot-inner">
+        <div class="grid-lines">
+          <span class="v-line" style="left:156px; width:3px"></span>
+          <span class="v-line" style="left:315px; width:2px"></span>
+          <span class="v-line" style="left:473px; width:2px"></span>
+          <span class="v-line" style="left:631px; width:2px"></span>
+          <span class="h-line" style="top:155px; height:3px"></span>
+          <span class="h-line" style="top:314px; height:2px"></span>
         </div>
       </div>
 
-      <!-- Fruit symbols (absolute within screen) -->
-      <img class="sym" src="assets/cherry.png"     style="left:117.05px; top:286px; width:51.12px; height:61.27px" alt="" />
-      <img class="sym" src="assets/plum.png"       style="left:173px;    top:290px; width:46px;    height:54px"    alt="" />
-      <img class="sym" src="assets/banana.png"     style="left:231px;    top:293px; width:56px;    height:52px"    alt="" />
-      <img class="sym" src="assets/watermelon.png" style="left:303px;    top:290px; width:55px;    height:55px"    alt="" />
-      <img class="sym" src="assets/orange.png"     style="left:38px;     top:355px; width:57px;    height:57px"    alt="" />
+      <!-- Symbols grid -->
+      <div class="sym-grid">
+        <div class="cell"><img class="sym w-cherry" src="assets/cherry.png" alt=""></div>
+        <div class="cell"><img class="sym w-plum" src="assets/plum.png" alt=""></div>
+        <div class="cell"><img class="sym w-cherry" src="assets/cherry.png" alt=""></div>
+        <div class="cell"><img class="sym w-plum" src="assets/plum.png" alt=""></div>
+        <div class="cell"><img class="sym w-melon" src="assets/watermelon.png" alt=""></div>
 
-      <!-- BONUS BUY button -->
-      <div class="bonus-buy">
-        <img src="assets/buy.svg" alt="" class="bb-icon" />
-        <span class="bb-text">BONUS BUY</span>
+        <div class="cell"><img class="sym w-banana" src="assets/banana.png" alt=""></div>
+        <div class="cell"><img class="sym w-melon" src="assets/watermelon.png" alt=""></div>
+        <div class="cell"><img class="sym w-plum" src="assets/plum.png" alt=""></div>
+        <div class="cell"><img class="sym w-banana" src="assets/banana.png" alt=""></div>
+        <div class="cell"><img class="sym w-ice" src="assets/ice.png" alt=""></div>
+
+        <div class="cell"><img class="sym w-melon" src="assets/watermelon.png" alt=""></div>
+        <div class="cell"><img class="sym w-ice" src="assets/ice.png" alt=""></div>
+        <div class="cell"><img class="sym w-orange" src="assets/orange.png" alt=""></div>
+        <div class="cell"><img class="sym w-cherry" src="assets/cherry.png" alt=""></div>
+        <div class="cell"><img class="sym w-orange" src="assets/orange.png" alt=""></div>
       </div>
 
-      <!-- Place your bet -->
-      <div class="pyb-bar"></div>
-      <p class="pyb-text">Place your bet</p>
+      <!-- Left card: BONUS BUY -->
+      <div class="side-card left-card">
+        <div class="lc-buy"><img src="assets/buy_desktop.svg" alt=""></div>
+        <p class="lc-text">text text</p>
+        <div class="lc-btn">BONUS BUY</div>
+      </div>
 
-      <!-- Bottom bet selector -->
-      <div class="bet-bar">
-        <div class="bet-cells">
-          <span class="bet-cell"></span>
-          <span class="bet-cell"></span>
-          <span class="bet-cell active"></span>
-          <span class="bet-cell"></span>
-          <span class="bet-cell"></span>
+      <!-- Right card: EXTRA CHANCE -->
+      <div class="side-card right-card">
+        <p class="rc-title">EXtra<br>CHANCE</p>
+        <div class="rc-star"><img src="assets/star.svg" alt=""></div>
+        <p class="rc-bet">BET: $0.6</p>
+        <div class="rc-bar"><div class="rc-bar-fill"></div></div>
+      </div>
+
+      <!-- Ready to spin -->
+      <div class="ready">
+        <span class="ready-dot"><img src="assets/greendot.svg" alt=""></span>
+        <span class="ready-text">Ready to spin</span>
+      </div>
+
+      <!-- Bottom control bar -->
+      <div class="bar">
+        <div class="box box-balance">
+          <p class="lbl">Balance</p>
+          <p class="val">$1 000 000</p>
+        </div>
+
+        <div class="lastwin">
+          <p class="lbl gold">LAST WIN</p>
+          <p class="val gold">$1000</p>
+        </div>
+
+        <div class="box box-bet">
+          <p class="lbl gold bet-lbl">Bet</p>
+          <img class="bet-minus" src="assets/minus.svg" alt="">
+          <p class="bet-val">$0.6</p>
+          <img class="bet-plus" src="assets/plus.svg" alt="">
+        </div>
+
+        <div class="spin">
+          <p class="spin-title">SPIN</p>
+          <p class="spin-sub">READY</p>
+        </div>
+
+        <div class="box box-turbo">
+          <img class="turbo-ic" src="assets/turbo.svg" alt="">
+          <p class="ctrl-lbl turbo-lbl">Turbo</p>
+        </div>
+
+        <div class="box box-auto">
+          <img class="auto-ic" src="assets/auto.svg" alt="">
+          <p class="ctrl-lbl auto-lbl">AUTO</p>
         </div>
       </div>
 
     </div>
   </div>
+
+  <script>
+    function fit() {
+      const f = document.querySelector('.frame');
+      const s = Math.min(window.innerWidth / 1440, window.innerHeight / 1024);
+      f.style.transform = 'scale(' + s + ')';
+    }
+    window.addEventListener('resize', fit);
+    fit();
+  </script>
 </body>
 </html>
