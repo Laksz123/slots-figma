@@ -24,24 +24,39 @@ html, body {
   height: 1024px;
   flex: none;
   transform-origin: center center;
-  background: transparent;
+  background: #10131c;
+  overflow: hidden;
 }
-.viewport { position: relative; z-index: 1; }
+/* fill any letterbox area with a fridge-ambient gradient (never black) */
+.viewport {
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(180deg, #aebfcc 0%, #6b6fa0 48%, #1c155d 100%);
+}
 
-/* ---------- Full-viewport background: fills width, anchored to top so the
-   fridge light stays visible; no side bars, lower area masked by purple ---------- */
-.bg { position: fixed; inset: 0; z-index: 0; overflow: hidden; background: #241a4d; }
+/* ---------- Background — EXACT Figma placement (node 1:25) ----------
+   Figma: container 1640x2925 centered, top -136; image inside 1451x2925 at
+   left -10 / top -136 of the frame; gradient overlay to-top #1c155d 58.405%
+   -> transparent 93.376% over the 2925-tall container. */
+.bg { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
 .bg-img {
   position: absolute;
-  inset: 0;
-  background: url("assets/bg_desktop.png") no-repeat top center;
-  background-size: 100% auto;
+  left: -10px;
+  top: -136px;
+  width: 1451px;
+  height: 2925px;
+  background: url("assets/bg_desktop.png") no-repeat center;
+  background-size: cover;
 }
 .bg-grad {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, #1c155d 26%, rgba(28,21,93,0) 60%);
+  left: -99px;
+  top: -136px;
+  width: 1640px;
+  height: 2925px;
+  background: linear-gradient(to top, #1c155d 58.405%, rgba(102,102,102,0) 93.376%);
 }
+.frame > *:not(.bg) { position: absolute; z-index: 1; }
 
 /* ---------- Top buttons ---------- */
 .top-btn {
