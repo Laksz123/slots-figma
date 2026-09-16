@@ -118,109 +118,94 @@
     </div>
   </div>
 
-  <!-- ============ MOBILE LAYOUT ============ -->
+  <!-- ============ MOBILE LAYOUT (pixel-perfect, node 66:290, 390x760) ============ -->
   <div class="viewport mobile-root">
     <div class="m-frame">
 
       <!-- Background -->
-      <div class="bg">
-        <div class="bg-img"></div>
-        <div class="bg-grad"></div>
+      <div class="m-bg">
+        <div class="m-bg-img"></div>
+        <div class="m-bg-grad"></div>
       </div>
 
-      <!-- Top bar: settings/music -->
-      <div class="m-top">
-        <div class="m-topbtn"><img src="assets/ic_music.svg" alt=""></div>
-        <div class="m-topbtn"><img src="assets/ic_settings.svg" alt=""></div>
-      </div>
-
-      <!-- Slot machine -->
-      <div class="m-slot">
-        <div class="m-slot-inner">
-          <div class="grid-lines">
-            <span class="v-line" style="left:20%; width:2px"></span>
-            <span class="v-line" style="left:40%; width:1px"></span>
-            <span class="v-line" style="left:60%; width:1px"></span>
-            <span class="v-line" style="left:80%; width:1px"></span>
-            <span class="h-line" style="top:33.33%; height:2px"></span>
-            <span class="h-line" style="top:66.66%; height:1px"></span>
-          </div>
-          <div class="m-sym-grid">
-            <div class="cell"><img class="sym" src="assets/cherry.png" alt=""></div>
-            <div class="cell"><img class="sym" src="assets/plum.png" alt=""></div>
-            <div class="cell"><img class="sym" src="assets/cherry.png" alt=""></div>
-            <div class="cell"><img class="sym" src="assets/plum.png" alt=""></div>
-            <div class="cell"><img class="sym" src="assets/watermelon.png" alt=""></div>
-            <div class="cell"><img class="sym" src="assets/banana.png" alt=""></div>
-            <div class="cell"><img class="sym" src="assets/watermelon.png" alt=""></div>
-            <div class="cell"><img class="sym" src="assets/plum.png" alt=""></div>
-            <div class="cell"><img class="sym" src="assets/banana.png" alt=""></div>
-            <div class="cell"><img class="sym" src="assets/ice.png" alt=""></div>
-            <div class="cell"><img class="sym" src="assets/watermelon.png" alt=""></div>
-            <div class="cell"><img class="sym" src="assets/ice.png" alt=""></div>
-            <div class="cell"><img class="sym" src="assets/orange.png" alt=""></div>
-            <div class="cell"><img class="sym" src="assets/cherry.png" alt=""></div>
-            <div class="cell"><img class="sym" src="assets/orange.png" alt=""></div>
-          </div>
+      <!-- Status bar -->
+      <div class="m-status">
+        <div class="m-time"><img src="assets/time941.svg" alt="9:41"></div>
+        <div class="m-ind"><img src="assets/indicator.svg" alt=""></div>
+        <div class="m-sicons">
+          <img class="ic-net" src="assets/network.svg" alt="">
+          <img class="ic-wifi" src="assets/wifi.svg" alt="">
+          <img class="ic-bat" src="assets/battery.svg" alt="">
         </div>
       </div>
 
-      <!-- Ready to spin -->
-      <div class="m-ready">
-        <span class="ready-dot"><img src="assets/greendot.svg" alt=""></span>
-        <span class="ready-text">Ready to spin</span>
-      </div>
+      <!-- Logo + jackpots -->
+      <div class="m-logo"></div>
+      <p class="m-logo-text">SlotUNO</p>
+      <div class="m-jack m-jack-minor"><span class="jk-t">MINOR</span><span class="jk-v">100</span></div>
+      <div class="m-jack m-jack-mini"><span class="jk-t">MINi</span><span class="jk-v">40</span></div>
+      <div class="m-jack m-jack-grand"><span class="jk-t">GRAND</span><span class="jk-v">4.000</span></div>
+      <div class="m-jack m-jack-major"><span class="jk-t">MAJOR</span><span class="jk-v">500</span></div>
 
-      <!-- Bonus buy + Extra chance -->
-      <div class="m-cards">
-        <div class="m-card m-bonus">
-          <img src="assets/buy_desktop.svg" alt="" class="m-buy-ic">
-          <div class="m-bonus-btn">BONUS BUY</div>
-        </div>
-        <div class="m-card m-extra">
-          <p class="m-extra-title">EXTRA<br>CHANCE</p>
-          <img src="assets/star.svg" alt="" class="m-star">
-          <p class="m-extra-bet">BET: $0.6</p>
-        </div>
-      </div>
-
-      <!-- Info row -->
-      <div class="m-info">
-        <div class="m-box">
-          <p class="lbl">Balance</p>
-          <p class="val">$1 000 000</p>
-        </div>
-        <div class="m-box m-box-center">
-          <p class="lbl gold">Last win</p>
-          <p class="val gold">$1000</p>
+      <!-- Slot -->
+      <div class="m-slot-outer"></div>
+      <div class="m-slot-inner">
+        <div class="grid-lines">
+          <span class="v-line" style="left:66px;  width:1px"></span>
+          <span class="v-line" style="left:131px; width:1px"></span>
+          <span class="v-line" style="left:196px; width:1px"></span>
+          <span class="v-line" style="left:261px; width:1px"></span>
+          <span class="h-line" style="top:64px;  height:1px"></span>
+          <span class="h-line" style="top:129px; height:1px"></span>
         </div>
       </div>
 
-      <!-- Controls -->
-      <div class="m-controls">
-        <div class="m-box m-bet">
-          <p class="lbl gold">Bet</p>
-          <div class="bet-row">
-            <img class="bet-minus" src="assets/minus.svg" alt="">
-            <p class="bet-val">$0.6</p>
-            <img class="bet-plus" src="assets/plus.svg" alt="">
+      <!-- Symbols (absolute, centered on cells) -->
+      <img class="m-sym f-cherry" src="assets/cherry.png"     style="left:131px; top:318px" alt="">
+      <img class="m-sym f-plum"   src="assets/plum.png"       style="left:196px; top:318px" alt="">
+      <img class="m-sym f-banana" src="assets/banana.png"     style="left:261px; top:318px" alt="">
+      <img class="m-sym f-melon"  src="assets/watermelon.png" style="left:326px; top:318px" alt="">
+
+      <img class="m-sym f-orange" src="assets/orange.png"     style="left:66px;  top:383px" alt="">
+      <img class="m-sym f-plum"   src="assets/plum.png"       style="left:131px; top:383px" alt="">
+      <img class="m-sym f-cherry" src="assets/cherry.png"     style="left:196px; top:383px" alt="">
+      <img class="m-sym f-orange" src="assets/orange.png"     style="left:326px; top:383px" alt="">
+
+      <img class="m-sym f-banana" src="assets/banana.png"     style="left:66px;  top:448px" alt="">
+      <img class="m-sym f-orange" src="assets/orange.png"     style="left:131px; top:448px" alt="">
+      <img class="m-sym f-melon"  src="assets/watermelon.png" style="left:196px; top:448px" alt="">
+      <img class="m-sym f-cherry" src="assets/cherry.png"     style="left:261px; top:448px" alt="">
+
+      <!-- Bonus buy -->
+      <div class="m-bonusbuy">
+        <img src="assets/m_buy.svg" alt="" class="m-bb-ic">
+        <span class="m-bb-text">BONUS BUY</span>
+      </div>
+
+      <!-- Place your bet -->
+      <div class="m-pyb-bar"></div>
+      <p class="m-pyb-text">Place your bet</p>
+
+      <!-- Control bar -->
+      <div class="m-ctrl">
+        <div class="m-cbtn m-menu">
+          <span class="m-ham"></span><span class="m-ham"></span><span class="m-ham"></span>
+        </div>
+        <div class="m-cbtn m-ff"><img src="assets/m_ff.svg" alt=""></div>
+        <div class="m-turbo-btn"><span>Hold for<br>turbo</span></div>
+        <div class="m-cbtn m-coins"><img src="assets/m_coins.svg" alt=""></div>
+        <div class="m-cbtn m-auto">
+          <div class="m-auto-ic">
+            <img class="m-auto-ellipse" src="assets/m_auto_ellipse.png" alt="">
+            <span class="m-auto-a">A</span>
+            <img class="m-auto-arc" src="assets/m_auto_arc.svg" alt="">
           </div>
         </div>
-        <div class="m-square m-turbo">
-          <img class="turbo-ic" src="assets/turbo.svg" alt="">
-          <p class="ctrl-lbl turbo-lbl">Turbo</p>
-        </div>
-        <div class="m-square m-auto">
-          <img class="auto-ic" src="assets/auto.svg" alt="">
-          <p class="ctrl-lbl auto-lbl">Auto</p>
-        </div>
       </div>
 
-      <!-- Spin -->
-      <div class="m-spin">
-        <p class="spin-title">SPIN</p>
-        <p class="spin-sub">READY</p>
-      </div>
+      <!-- Bet / balance footer -->
+      <p class="m-bet-foot">bet: $3</p>
+      <p class="m-bal-foot">$ 1 000 000</p>
 
     </div>
   </div>
@@ -229,14 +214,12 @@
     function fit() {
       const isMobile = window.matchMedia('(max-width: 820px)').matches
                     || window.matchMedia('(orientation: portrait)').matches;
-      const desk = document.querySelector('.desktop-root');
-      const mob  = document.querySelector('.mobile-root');
       if (isMobile) {
-        const f = mob.querySelector('.m-frame');
-        const s = Math.min(window.innerWidth / 390, window.innerHeight / 800);
+        const f = document.querySelector('.m-frame');
+        const s = Math.min(window.innerWidth / 390, window.innerHeight / 760);
         f.style.transform = 'scale(' + s + ')';
       } else {
-        const f = desk.querySelector('.frame');
+        const f = document.querySelector('.frame');
         const s = Math.min(window.innerWidth / 1440, window.innerHeight / 1024);
         f.style.transform = 'scale(' + s + ')';
       }
