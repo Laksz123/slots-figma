@@ -45,8 +45,10 @@ html, body {
   top: -136px;
   width: 1451px;
   height: 2925px;
-  background: url("assets/bg_desktop.png") no-repeat center;
-  background-size: cover;
+  background: url("assets/bg_desktop.png") no-repeat;
+  /* Figma stretches the image into the box (w 88.49% / h 100.01%),
+     NOT cover — this keeps both fridge side walls visible */
+  background-size: 100% 100%;
 }
 .bg-grad {
   position: absolute;
