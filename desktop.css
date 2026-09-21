@@ -1,5 +1,8 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
+/* off-screen host for the per-reel motion-blur SVG filters */
+.mb-defs { position: absolute; width: 0; height: 0; overflow: hidden; pointer-events: none; }
+
 html, body {
   width: 100%;
   height: 100%;
@@ -102,6 +105,10 @@ html, body {
   z-index: 3;
 }
 .grid-lines { position: absolute; inset: 0; }
+.slot-inner .grid-lines {
+  z-index: 3;
+  pointer-events: none;
+}
 .grid-lines .v-line {
   position: absolute;
   top: 0;
@@ -118,29 +125,80 @@ html, body {
 /* ---------- Symbols grid ---------- */
 .sym-grid {
   position: absolute;
-  left: 328px;
-  top: 299px;
-  width: 788px;
-  height: 472px;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  gap: 2px;
-  z-index: 4;
+  z-index: 1;
+  overflow: hidden;
+  border-radius: 22px;
 }
-.cell {
+.reel {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  contain: paint;
+}
+.reel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background:
+    linear-gradient(to bottom, rgba(23,24,42,.78), rgba(23,24,42,0) 22%, rgba(23,24,42,0) 78%, rgba(23,24,42,.82)),
+    linear-gradient(to right, rgba(255,255,255,.04), rgba(255,255,255,0) 24%, rgba(0,0,0,.22));
+  opacity: 0;
+  transition: opacity .16s ease;
+}
+.reel-strip {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+.reel-item {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  height: calc(472px / 3);
+  flex: 0 0 calc(472px / 3);
   overflow: hidden;
 }
-.sym { display: block; height: auto; object-fit: contain; }
+.sym {
+  display: block;
+  height: auto;
+  object-fit: contain;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  user-select: none;
+  pointer-events: none;
+}
 .w-cherry { width: 92px; }
 .w-plum   { width: 104px; }
 .w-orange { width: 128px; }
 .w-melon  { width: 132px; }
 .w-banana { width: 142px; }
 .w-ice    { width: 118px; }
+
+.is-spinning .reel::after { opacity: 1; }
+.is-spin-pending .spin,
+.is-spin-pending .m-turbo-btn,
+.is-spin-pending .box-turbo,
+.is-spinning .spin,
+.is-spinning .m-turbo-btn,
+.is-spinning .box-turbo {
+  filter: brightness(1.12) saturate(1.16);
+}
+.is-spin-pending .spin,
+.is-spin-pending .m-turbo-btn {
+  transform: scale(0.97);
+}
 
 /* ---------- Side cards ---------- */
 .side-card {
@@ -439,19 +497,35 @@ html, body {
   left: 29px; top: 283px; width: 333px; height: 200px; z-index: 4;
   background: #17182a; border: 3px solid #5782a4; border-radius: 5px; overflow: hidden;
 }
-.m-slot-inner .grid-lines { position: absolute; inset: 0; }
+.m-slot-inner .grid-lines { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
 .m-slot-inner .v-line { position: absolute; top: 0; height: 100%;
   background: linear-gradient(to bottom, rgba(217,217,217,0), #d9d9d9 50%, rgba(217,217,217,0)); }
 .m-slot-inner .h-line { position: absolute; left: 0; width: 100%;
   background: linear-gradient(to right, rgba(217,217,217,0), #d9d9d9 50%, rgba(217,217,217,0)); }
 
-/* symbols */
-.m-sym { z-index: 5; transform: translate(-50%, -50%); object-fit: contain; display: block; }
+.m-reel-grid {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  overflow: hidden;
+}
+.m-reel-grid .reel-item {
+  height: calc(200px / 3);
+  flex-basis: calc(200px / 3);
+}
 .f-cherry { width: 51px; height: 61px; }
 .f-plum   { width: 46px; height: 54px; }
 .f-banana { width: 56px; height: 52px; }
 .f-melon  { width: 55px; height: 55px; }
 .f-orange { width: 57px; height: 57px; }
+.f-ice    { width: 51px; height: 51px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reel-strip { will-change: auto; }
+  .reel::after { display: none; }
+}
 
 /* bonus buy */
 .m-bonusbuy {

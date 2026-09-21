@@ -10,6 +10,17 @@
   <link rel="stylesheet" href="desktop.css" />
 </head>
 <body>
+  <!-- Per-reel vertical motion-blur filters (stdDeviation y-axis driven from JS by reel velocity) -->
+  <svg class="mb-defs" width="0" height="0" aria-hidden="true" focusable="false">
+    <defs>
+      <filter id="mb0" x="-15%" y="-15%" width="130%" height="130%" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="0 0" edgeMode="duplicate"/></filter>
+      <filter id="mb1" x="-15%" y="-15%" width="130%" height="130%" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="0 0" edgeMode="duplicate"/></filter>
+      <filter id="mb2" x="-15%" y="-15%" width="130%" height="130%" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="0 0" edgeMode="duplicate"/></filter>
+      <filter id="mb3" x="-15%" y="-15%" width="130%" height="130%" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="0 0" edgeMode="duplicate"/></filter>
+      <filter id="mb4" x="-15%" y="-15%" width="130%" height="130%" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="0 0" edgeMode="duplicate"/></filter>
+    </defs>
+  </svg>
+
   <div class="viewport desktop-root">
     <div class="frame" data-node-id="1:24">
 
@@ -26,6 +37,13 @@
       <!-- Slot machine -->
       <div class="slot-outer"></div>
       <div class="slot-inner">
+        <div class="sym-grid">
+          <div class="reel" data-reel="0"><div class="reel-strip"></div></div>
+          <div class="reel" data-reel="1"><div class="reel-strip"></div></div>
+          <div class="reel" data-reel="2"><div class="reel-strip"></div></div>
+          <div class="reel" data-reel="3"><div class="reel-strip"></div></div>
+          <div class="reel" data-reel="4"><div class="reel-strip"></div></div>
+        </div>
         <div class="grid-lines">
           <span class="v-line" style="left:156px; width:3px"></span>
           <span class="v-line" style="left:315px; width:2px"></span>
@@ -34,27 +52,6 @@
           <span class="h-line" style="top:155px; height:3px"></span>
           <span class="h-line" style="top:314px; height:2px"></span>
         </div>
-      </div>
-
-      <!-- Symbols grid -->
-      <div class="sym-grid">
-        <div class="cell"><img class="sym w-cherry" src="assets/cherry.png" alt=""></div>
-        <div class="cell"><img class="sym w-plum" src="assets/plum.png" alt=""></div>
-        <div class="cell"><img class="sym w-cherry" src="assets/cherry.png" alt=""></div>
-        <div class="cell"><img class="sym w-plum" src="assets/plum.png" alt=""></div>
-        <div class="cell"><img class="sym w-melon" src="assets/watermelon.png" alt=""></div>
-
-        <div class="cell"><img class="sym w-banana" src="assets/banana.png" alt=""></div>
-        <div class="cell"><img class="sym w-melon" src="assets/watermelon.png" alt=""></div>
-        <div class="cell"><img class="sym w-plum" src="assets/plum.png" alt=""></div>
-        <div class="cell"><img class="sym w-banana" src="assets/banana.png" alt=""></div>
-        <div class="cell"><img class="sym w-ice" src="assets/ice.png" alt=""></div>
-
-        <div class="cell"><img class="sym w-melon" src="assets/watermelon.png" alt=""></div>
-        <div class="cell"><img class="sym w-ice" src="assets/ice.png" alt=""></div>
-        <div class="cell"><img class="sym w-orange" src="assets/orange.png" alt=""></div>
-        <div class="cell"><img class="sym w-cherry" src="assets/cherry.png" alt=""></div>
-        <div class="cell"><img class="sym w-orange" src="assets/orange.png" alt=""></div>
       </div>
 
       <!-- Left card: BONUS BUY -->
@@ -147,23 +144,14 @@
           <span class="h-line" style="top:64px;  height:1px"></span>
           <span class="h-line" style="top:129px; height:1px"></span>
         </div>
+        <div class="m-reel-grid">
+          <div class="reel" data-reel="0"><div class="reel-strip"></div></div>
+          <div class="reel" data-reel="1"><div class="reel-strip"></div></div>
+          <div class="reel" data-reel="2"><div class="reel-strip"></div></div>
+          <div class="reel" data-reel="3"><div class="reel-strip"></div></div>
+          <div class="reel" data-reel="4"><div class="reel-strip"></div></div>
+        </div>
       </div>
-
-      <!-- Symbols (absolute, centered on cells) -->
-      <img class="m-sym f-cherry" src="assets/cherry.png"     style="left:131px; top:318px" alt="">
-      <img class="m-sym f-plum"   src="assets/plum.png"       style="left:196px; top:318px" alt="">
-      <img class="m-sym f-banana" src="assets/banana.png"     style="left:261px; top:318px" alt="">
-      <img class="m-sym f-melon"  src="assets/watermelon.png" style="left:326px; top:318px" alt="">
-
-      <img class="m-sym f-orange" src="assets/orange.png"     style="left:66px;  top:383px" alt="">
-      <img class="m-sym f-plum"   src="assets/plum.png"       style="left:131px; top:383px" alt="">
-      <img class="m-sym f-cherry" src="assets/cherry.png"     style="left:196px; top:383px" alt="">
-      <img class="m-sym f-orange" src="assets/orange.png"     style="left:326px; top:383px" alt="">
-
-      <img class="m-sym f-banana" src="assets/banana.png"     style="left:66px;  top:448px" alt="">
-      <img class="m-sym f-orange" src="assets/orange.png"     style="left:131px; top:448px" alt="">
-      <img class="m-sym f-melon"  src="assets/watermelon.png" style="left:196px; top:448px" alt="">
-      <img class="m-sym f-cherry" src="assets/cherry.png"     style="left:261px; top:448px" alt="">
 
       <!-- Bonus buy -->
       <div class="m-bonusbuy">
@@ -200,6 +188,295 @@
   </div>
 
   <script>
+    const symbols = {
+      cherry: { src: 'assets/cherry.png', desktop: 'w-cherry', mobile: 'f-cherry' },
+      plum: { src: 'assets/plum.png', desktop: 'w-plum', mobile: 'f-plum' },
+      banana: { src: 'assets/banana.png', desktop: 'w-banana', mobile: 'f-banana' },
+      melon: { src: 'assets/watermelon.png', desktop: 'w-melon', mobile: 'f-melon' },
+      ice: { src: 'assets/ice.png', desktop: 'w-ice', mobile: 'f-ice' },
+      orange: { src: 'assets/orange.png', desktop: 'w-orange', mobile: 'f-orange' }
+    };
+
+    const baseReels = [
+      ['cherry', 'banana', 'melon'],
+      ['plum', 'melon', 'ice'],
+      ['cherry', 'plum', 'orange'],
+      ['plum', 'banana', 'cherry'],
+      ['melon', 'ice', 'orange']
+    ];
+
+    const reelPool = [
+      ['cherry', 'orange', 'melon', 'banana', 'plum', 'ice'],
+      ['plum', 'melon', 'ice', 'cherry', 'banana', 'orange'],
+      ['orange', 'cherry', 'plum', 'melon', 'ice', 'banana'],
+      ['banana', 'plum', 'cherry', 'ice', 'orange', 'melon'],
+      ['melon', 'ice', 'orange', 'banana', 'cherry', 'plum']
+    ];
+
+    const results = [
+      [
+        ['cherry', 'banana', 'melon'],
+        ['plum', 'melon', 'ice'],
+        ['cherry', 'plum', 'orange'],
+        ['plum', 'banana', 'cherry'],
+        ['melon', 'ice', 'orange']
+      ],
+      [
+        ['orange', 'cherry', 'banana'],
+        ['banana', 'plum', 'orange'],
+        ['melon', 'ice', 'cherry'],
+        ['ice', 'orange', 'plum'],
+        ['cherry', 'melon', 'banana']
+      ],
+      [
+        ['melon', 'plum', 'ice'],
+        ['orange', 'banana', 'cherry'],
+        ['banana', 'melon', 'plum'],
+        ['cherry', 'ice', 'orange'],
+        ['plum', 'orange', 'melon']
+      ],
+      [
+        ['ice', 'melon', 'cherry'],
+        ['cherry', 'orange', 'melon'],
+        ['plum', 'banana', 'ice'],
+        ['melon', 'cherry', 'banana'],
+        ['orange', 'plum', 'ice']
+      ]
+    ];
+
+    let spinIndex = 1;
+    let spinning = false;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const spinDistanceLoops = 8;   // rows of "junk" symbols flown past before landing (bigger = faster/blurrier middle)
+    const spinDuration = 2100;     // base spin length for reel 0 (ms)
+    const reelStagger = 150;       // each reel to the right spins this much longer -> stops L->R
+    const spinStartDelay = 60;     // near-instant release after the click (no dead hover)
+    const antiFrac = 0.15;         // fraction of the roll spent on the anticipation pull-up
+    const backRows = 0.6;          // how far the reel back-winds UP (in rows) before dropping
+    const accelFrac = 0.18;        // fraction of the DROP spent ramping up from a standstill
+    const cruiseEndFrac = 0.72;    // fraction of the DROP at which cruise ends and braking begins
+    const blurGain = 0.24;         // px of vertical blur per px/frame of reel velocity
+    const blurCapFrac = 0.13;      // max blur as a fraction of one row height (higher = streakier fast middle)
+    const blurFilters = [0, 1, 2, 3, 4].map((i) =>
+      document.querySelector('#mb' + i + ' feGaussianBlur'));
+    let currentReels = baseReels.map((reel) => reel.slice());
+
+    function createSymbol(name, mode) {
+      const item = document.createElement('div');
+      item.className = 'reel-item';
+      const img = document.createElement('img');
+      img.className = 'sym ' + symbols[name][mode];
+      img.src = symbols[name].src;
+      img.alt = '';
+      item.appendChild(img);
+      return item;
+    }
+
+    function buildStrip(strip, reelIndex, startSet, finalSet, mode) {
+      const fragment = document.createDocumentFragment();
+      const pool = reelPool[reelIndex];
+      const run = [];
+      const runLength = spinDistanceLoops * pool.length;
+      for (let i = 0; i < runLength; i += 1) {
+        run.push(pool[(i + reelIndex + 1) % pool.length]);
+      }
+      // Top -> bottom order for a DOWNWARD spin (symbols fall in from the top):
+      //   finalSet     = what lands in the window at rest (top of the strip)
+      //   run          = junk symbols scrolled through
+      //   startSet     = currently visible symbols (where the window sits at t=0)
+      //   belowBuffer  = one extra symbol UNDER startSet, so the anticipation pull-up
+      //                  never exposes a blank gap at the bottom edge of the reel
+      const belowBuffer = pool[reelIndex % pool.length];
+      const sequence = [...finalSet, ...run, ...startSet, belowBuffer];
+      sequence.forEach((name) => fragment.appendChild(createSymbol(name, mode)));
+      strip.replaceChildren(fragment);
+      return sequence.length - 4; // rows from the start window (on startSet) down to rest (finalSet)
+    }
+
+    function buildStaticStrip(strip, visibleSet, mode) {
+      const fragment = document.createDocumentFragment();
+      visibleSet.forEach((name) => fragment.appendChild(createSymbol(name, mode)));
+      strip.replaceChildren(fragment);
+      strip.style.transform = 'translate3d(0, 0, 0)';
+    }
+
+    function setInitialReels() {
+      document.querySelectorAll('.sym-grid .reel').forEach((reel, index) => {
+        const strip = reel.querySelector('.reel-strip');
+        buildStaticStrip(strip, currentReels[index], 'desktop');
+      });
+
+      document.querySelectorAll('.m-reel-grid .reel').forEach((reel, index) => {
+        const strip = reel.querySelector('.reel-strip');
+        buildStaticStrip(strip, currentReels[index], 'mobile');
+      });
+    }
+
+    function waitFrame() {
+      return new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+    }
+
+    function delay(ms) {
+      return new Promise((resolve) => setTimeout(resolve, ms));
+    }
+
+    function prepareReel(reel, reelIndex, startSet, finalSet, mode) {
+      const strip = reel.querySelector('.reel-strip');
+      const travelRows = buildStrip(strip, reelIndex, startSet, finalSet, mode);
+      // Position by the REAL rendered cell height, not reel.clientHeight/3. The reel's
+      // content box is a couple of px shorter than three full cells (its border), so
+      // clientHeight/3 is ~2px off per row — over the whole strip that mismatch snaps the
+      // symbols by ~50px the instant the spin starts (the "teleport"). Measuring the cell
+      // makes the start position line up exactly with the resting symbols -> no jump.
+      const firstItem = strip.querySelector('.reel-item');
+      const rowHeight = firstItem ? parseFloat(getComputedStyle(firstItem).height) : reel.clientHeight / 3;
+      const startY = -travelRows * rowHeight; // window sits on startSet; rest window is at 0
+
+      strip.getAnimations().forEach((animation) => animation.cancel());
+      // Show the current symbols with no visible jump before the fall begins.
+      strip.style.transform = 'translate3d(0, ' + startY + 'px, 0)';
+      return { strip, reelIndex, rowHeight, startY, prevY: startY };
+    }
+
+    // Build the reel motion as one smooth position curve so the velocity is continuous
+    // end-to-end (no lurch/teleport, no snap):
+    //   1. anticipation  -> ease UP from rest to the top of the back-wind (velocity 0 at the top),
+    //   2. drop          -> trapezoid fall (accel from standstill, steady cruise, soft stop).
+    // Because velocity is 0 at the top of the back-wind AND at the start of the drop, the
+    // reversal from "pull up" to "fall down" is seamless — the reference's start feel.
+    function buildFallKeyframes(startY, rowHeight) {
+      const D = -startY;                 // downward travel from rest-start to rest (positive)
+      const back = rowHeight * backRows; // how far it pulls UP first
+      const tup = antiFrac;              // portion of the roll spent on the pull-up
+      const ta = accelFrac;              // accel ends (fraction of the DROP)
+      const tb = cruiseEndFrac;          // cruise ends, braking begins (fraction of the DROP)
+      const areaTotal = 0.5 * ta + (tb - ta) + 0.5 * (1 - tb);
+      function posFrac(u) {               // fraction of the drop travelled, u in [0,1]
+        let a;
+        if (u <= ta)      a = 0.5 * u * u / ta;                     // accelerating
+        else if (u <= tb) a = 0.5 * ta + (u - ta);                 // constant cruise
+        else { const w = u - tb, W = 1 - tb;                        // braking
+               a = 0.5 * ta + (tb - ta) + (w - 0.5 * w * w / W); }
+        return a / areaTotal;
+      }
+      function smooth(x) { return x * x * (3 - 2 * x); } // ease-in-out, zero velocity at both ends
+      const N = 48;
+      const frames = [];
+      for (let i = 0; i <= N; i += 1) {
+        const u = i / N;
+        let y;
+        if (u <= tup) {
+          // anticipation: rest -> top of the back-wind (up), coming to a stop at the top
+          y = startY - back * smooth(u / tup);
+        } else {
+          // drop: top of the back-wind -> rest (0), travelling D + back
+          const uf = (u - tup) / (1 - tup);
+          y = (startY - back) + posFrac(uf) * (D + back);
+        }
+        frames.push({
+          transform: 'translate3d(0, ' + y.toFixed(2) + 'px, 0)',
+          offset: i / N,
+          easing: 'linear'
+        });
+      }
+      return frames;
+    }
+
+    function animatePreparedReel(prepared) {
+      const { strip, reelIndex, rowHeight, startY } = prepared;
+      // Reels fall DOWNWARD from startY (window on current symbols) to 0 (window on final symbols).
+      if (reduceMotion.matches) {
+        strip.style.transform = 'translate3d(0, 0, 0)';
+        return Promise.resolve();
+      }
+
+      // Reels to the right spin a little longer, so the whole row settles left -> right.
+      const duration = spinDuration + reelIndex * reelStagger;
+
+      return strip.animate(
+        buildFallKeyframes(startY, rowHeight),
+        {
+          duration: duration,
+          delay: 0,
+          easing: 'linear',
+          fill: 'forwards'
+        }
+      ).finished.catch(() => {});
+    }
+
+    function readStripY(strip) {
+      const t = getComputedStyle(strip).transform;
+      if (!t || t === 'none') return 0;
+      try { return new DOMMatrixReadOnly(t).m42; } catch (err) { return 0; }
+    }
+
+    // Vertical motion blur, driven each frame by how fast the reel is actually moving.
+    // Blur peaks during the cruise and fades to zero as the reel brakes and settles.
+    function runReelBlur(prepared) {
+      let active = true;
+      prepared.forEach((p) => {
+        p.strip.style.filter = 'url(#mb' + p.reelIndex + ')';
+        p.prevY = readStripY(p.strip);
+      });
+
+      function tick() {
+        if (!active) return;
+        prepared.forEach((p) => {
+          const y = readStripY(p.strip);
+          const velocity = Math.abs(y - p.prevY);
+          p.prevY = y;
+          const sigma = Math.min(velocity * blurGain, p.rowHeight * blurCapFrac);
+          const f = blurFilters[p.reelIndex];
+          if (f) f.setAttribute('stdDeviation', '0 ' + sigma.toFixed(2));
+        });
+        requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+
+      return function stopBlur() {
+        active = false;
+        prepared.forEach((p) => {
+          p.strip.style.filter = '';
+          const f = blurFilters[p.reelIndex];
+          if (f) f.setAttribute('stdDeviation', '0 0');
+        });
+      };
+    }
+
+    async function spinOnce() {
+      if (spinning) return;
+      spinning = true;
+      document.body.classList.add('is-spin-pending');
+      const final = results[spinIndex % results.length];
+      spinIndex += 1;
+      const isMobile = window.matchMedia('(max-width: 820px)').matches
+                    || window.matchMedia('(orientation: portrait)').matches;
+      const selector = isMobile ? '.m-reel-grid .reel' : '.sym-grid .reel';
+      const mode = isMobile ? 'mobile' : 'desktop';
+
+      await delay(spinStartDelay);
+      document.body.classList.remove('is-spin-pending');
+      document.body.classList.add('is-spinning');
+      const prepared = Array.from(document.querySelectorAll(selector)).map((reel, index) =>
+        prepareReel(reel, index, currentReels[index], final[index], mode)
+      );
+
+      await waitFrame();
+      const stopBlur = reduceMotion.matches ? function () {} : runReelBlur(prepared);
+      const animations = prepared.map(animatePreparedReel);
+
+      await Promise.all(animations);
+      stopBlur();
+      currentReels = final.map((reel) => reel.slice());
+      document.querySelectorAll(selector).forEach((reel, index) => {
+        const strip = reel.querySelector('.reel-strip');
+        strip.getAnimations().forEach((animation) => animation.cancel());
+        buildStaticStrip(strip, currentReels[index], mode);
+      });
+      document.body.classList.remove('is-spinning');
+      spinning = false;
+    }
+
     function fit() {
       const isMobile = window.matchMedia('(max-width: 820px)').matches
                     || window.matchMedia('(orientation: portrait)').matches;
@@ -215,7 +492,14 @@
     }
     window.addEventListener('resize', fit);
     window.addEventListener('orientationchange', fit);
+    document.querySelectorAll('.spin, .m-turbo-btn, .box-turbo').forEach((button) => {
+      button.addEventListener('click', spinOnce);
+    });
+    setInitialReels();
     fit();
+    if (new URLSearchParams(window.location.search).has('autospin')) {
+      setTimeout(spinOnce, 500);
+    }
   </script>
 </body>
 </html>
